@@ -90,9 +90,9 @@ $border-radius: 20px;
   }
 }
 
-// .card-title {
-//   height: 50px;
-// }
+.card-title {
+  height: 30px;
+}
 .card-img-top {
   padding-bottom: 10px;
   height: 200px;
@@ -101,4 +101,41 @@ $border-radius: 20px;
 }
 .card-img-top:hover {
   object-fit: cover;
+}
+
+img {
+  width: 100%;
+}
+
+.text-best-sell {
+  position: relative;
+  padding: 8px;
+  transition: 0.2s;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.text-best-sell::after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #07466b;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.text-best-sell:hover::after {
+  width: 100%;
+  left: 0;
+}
+.card-img-product {
+  width: 200px;
+  height: 200px;
+}
+img {
+  width: 100%;
 }

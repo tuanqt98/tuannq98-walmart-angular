@@ -19,6 +19,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
+import { PaginatorModule } from 'primeng/paginator';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth.interceptor';
+import { CartComponent } from './components/cart/cart.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +34,7 @@ import { MatIconModule } from '@angular/material/icon';
     HomeComponent,
     ProductsComponent,
     ProductDetailComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,8 +48,16 @@ import { MatIconModule } from '@angular/material/icon';
     MatButtonModule,
     MatFormFieldModule,
     MatIconModule,
+    PaginatorModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -1,5 +1,7 @@
+import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { Product, ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -7,6 +9,7 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbCarouselConfig],
 })
 export class HomeComponent implements OnInit {
+  products: Product[] = [];
   category = [
     {
       title: 'Party Decorations & Party Supplies',
@@ -14,12 +17,6 @@ export class HomeComponent implements OnInit {
       description:
         'With supporting text below as a natural lead-in to additional content',
     },
-    // {
-    //   title: 'Ballons',
-    //   image: '../../../assets/images/party-accessories/party-acc.jpeg',
-    //   description:
-    //     'With supporting text below as a natural lead-in to additional content',
-    // },
     {
       title: 'Health & Beauty',
       image:
@@ -35,7 +32,10 @@ export class HomeComponent implements OnInit {
     },
   ];
   ngOnInit(): void {}
-  constructor() {
-    //
+  constructor(
+    public cartService: CartService,
+    private productService: ProductService
+  ) {
+    this.products = productService.filter('DIY & Car Care');
   }
 }

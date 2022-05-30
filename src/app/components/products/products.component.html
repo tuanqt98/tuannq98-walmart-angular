@@ -1,3 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="d-flex my-3">
+      <h4 class="font-weight-bold mb-0">Default Select |</h4>
+      <select id="gender1">
+        <option>Best Match</option>
+        <option>Best Seller</option>
+        <option>Price: low to high</option>
+        <option>Price: high to low</option>
+      </select>
+    </div>
+  </div>
+</div>
 <div class="product my-5 container">
   <div class="row">
     <div class="col-sm-3 my-4" *ngFor="let product of products">
@@ -9,7 +22,7 @@
           alt="Card image cap"
         />
         <div class="card-body">
-          <h5 class="card-title">{{ product.name }}</h5>
+          <h4 class="card-title">{{ product.name }}</h4>
           <p class="card-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
             minima sint iste qui reiciendis. Tempora corrupti quae adipisci
@@ -19,7 +32,7 @@
           <p class="card-text text-info">
             <span></span>
           </p>
-          <p class="card-text text-warning">
+          <p class="card-text text-warning font-weight-bold">
             <span>{{ product.price | currency: "USD" }}</span>
           </p>
           <button
@@ -54,9 +67,8 @@
     </div>
   </div>
 </div>
-<ngb-pagination
-  class="pagination"
-  [collectionSize]="products.length"
-  [(page)]="totalPage"
-  [pageSize]="limit"
-></ngb-pagination>
+<p-paginator
+  [rows]="10"
+  totalRecords="100"
+  (onPageChange)="paginate($event)"
+></p-paginator>

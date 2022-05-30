@@ -85,7 +85,11 @@
             <div class="desc-sign-in" ngbDropdown id="gfg" ngbDropdownToggle>
               <p>Sign in</p>
               <p>Account</p>
-              <div ngbDropdownMenu="gfg" class="shadow">
+              <div
+                ngbDropdownMenu="gfg"
+                class="shadow"
+                *ngIf="!authService.isLoggedIn(); else avatar"
+              >
                 <a class="nav-link login" ngbDropdownItem routerLink="/login"
                   >Sign in</a
                 >
@@ -96,11 +100,45 @@
                   >Create an account</a
                 >
                 <hr />
-                <p class="text-dark text-center">Purchase History</p>
+                <p class="text-dark text-center">
+                  <i class="fas fa-receipt mr-1"></i>Purchase History
+                </p>
               </div>
             </div>
           </div>
         </li>
+        <ng-template #avatar>
+          <li class="nav-item ml-auto d-flex align-item-center">
+            <div class="dropdown user-dropdown">
+              <span
+                class="dropdown-toggle cursor-pointer d-inline-block"
+                (click)="show = !show"
+              >
+                <img
+                  [src]="authService.user.avatar"
+                  alt="User avatar"
+                  class="user-avatar"
+                />
+              </span>
+              <div class="dropdown-menu" [class.show]="show">
+                <span
+                  class="dropdown-item cursor-pointer"
+                  (click)="goToMyProfile()"
+                  >My profile</span
+                >
+                <span
+                  class="dropdown-item cursor-pointer"
+                  (click)="goToAdminPage()"
+                  *ngIf="authService.isAdmin()"
+                  >Go to admin page</span
+                >
+                <span class="dropdown-item cursor-pointer" (click)="logout()"
+                  ><i class="fas fa-sign-out-alt"></i>Log out</span
+                >
+              </div>
+            </div>
+          </li>
+        </ng-template>
         <li class="nav-item mr-3">
           <a class="nav-link cart text-center" routerLink="/cart"
             ><i class="fas fa-shopping-cart text-white"></i>

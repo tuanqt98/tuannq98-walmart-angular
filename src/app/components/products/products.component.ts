@@ -8,14 +8,15 @@ import { CartService } from '../../services/cart.service';
 })
 export class ProductsComponent implements OnInit {
   products: Product[] = [];
-  totalPage: any = 1;
-  limit: 10;
+
   constructor(
     private productService: ProductService,
     public cartService: CartService
   ) {
-    this.products = productService.filter('DIY & Car Care');
+    // this.products = productService.filter('DIY & Car Care');
+    this.products = productService.getAllProduct();
   }
 
   ngOnInit(): void {}
+  paginate(event) {}
 }
