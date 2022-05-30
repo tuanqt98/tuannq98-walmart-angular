@@ -1,0 +1,104 @@
+.nav-main {
+  height: 50px;
+  background-color: #07466b;
+}
+
+a,
+a:visited,
+a:hover,
+a:active {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: relative;
+  transition: 0.5s color ease;
+  text-decoration: none;
+  color: #fff;
+  font-size: 1rem;
+}
+a:hover {
+  color: #fff;
+}
+a.before:before,
+a.after:after {
+  content: "";
+  transition: 0.5s all ease;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  position: absolute;
+}
+a.before:before {
+  top: -0.25em;
+}
+a.after:after {
+  bottom: 0.2em;
+}
+a.before:before,
+a.after:after {
+  height: 2px;
+  width: 0;
+  background: #fff;
+}
+a.first:after {
+  left: 15px;
+}
+a.before:hover:before,
+a.after:hover:after {
+  width: 60%;
+}
+.card {
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.075);
+  border-radius: 11px;
+  overflow: hidden;
+  transition: all 0.4s;
+}
+.card:hover {
+  transform: translateY(-1.1rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+}
+$background: #fafbff;
+$button-width: 120px;
+$border-radius: 20px;
+.btn.shop-now {
+  $btn-color: #000;
+  $btn-hover-color: #000;
+  position: relative;
+  border-color: $btn-color;
+  font-weight: 500;
+  color: $btn-color;
+  border-radius: $border-radius;
+  overflow: hidden;
+  &::before {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: $border-radius;
+    transform: translate(-100%, 0) rotate(50deg);
+    transform-origin: top left;
+    transition: all 0.35s;
+    background-color: $btn-hover-color;
+    z-index: -1;
+    content: "";
+  }
+  &:hover {
+    color: #fff;
+    border-color: $btn-hover-color;
+    &::before {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+// .card-title {
+//   height: 50px;
+// }
+.card-img-top {
+  padding-bottom: 10px;
+  height: 200px;
+  object-fit: contain;
+  border-bottom: 1px solid #ccc;
+}
+.card-img-top:hover {
+  object-fit: cover;
+}

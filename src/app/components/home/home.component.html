@@ -1,0 +1,49 @@
+<div class="nav-main container-fluid">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto w-100 justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link text-white first after" href="#">Grocery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white first after" href="#">Tech</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white first after" href="#">Fashion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white first after" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white first after" href="#">Patio & garden</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white first after" href="#">Best sellers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white first after" href="#">Deals</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white first after" href="#">Walmart++</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div class="brand my-5 container-fluid">
+  <div class="row">
+    <div class="col-sm-4 my-4" *ngFor="let cate of category">
+      <div class="card">
+        <img class="card-img-top" [src]="cate.image" alt="Card image cap" />
+        <div class="card-body">
+          <h5 class="card-title">{{ cate.title }}</h5>
+          <p class="card-text">
+            {{ cate.description }}
+          </p>
+          <a href="#" class="btn shop-now" routerLink="/product">Shop now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

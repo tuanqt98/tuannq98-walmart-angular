@@ -3,16 +3,47 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { HomeComponent } from './components/home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductsComponent } from './components/products/products.component';
+import { ProductDetailComponent } from './components/product-detail/product-detail.component';
+import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    LoginComponent,
+    SignupComponent,
+    HomeComponent,
+    ProductsComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    FormsModule,
+    NgbPaginationModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
