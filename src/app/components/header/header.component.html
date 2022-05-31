@@ -35,6 +35,12 @@
           >
           <div ngbDropdownMenu="gfg" class="shadow">
             <a
+              class="nav-link department-hover text-dark font-weight-bold"
+              ngbDropdownItem
+              routerLink="/product"
+              >All Departments</a
+            >
+            <a
               class="nav-link department-hover text-dark"
               ngbDropdownItem
               routerLink="/party-decoration"
@@ -120,7 +126,7 @@
                   class="user-avatar"
                 />
               </span>
-              <div class="dropdown-menu" [class.show]="show">
+              <div class="dropdown-menu menu-show" [class.show]="show">
                 <span
                   class="dropdown-item cursor-pointer"
                   (click)="goToMyProfile()"
@@ -133,7 +139,7 @@
                   >Go to admin page</span
                 >
                 <span class="dropdown-item cursor-pointer" (click)="logout()"
-                  ><i class="fas fa-sign-out-alt"></i>Log out</span
+                  ><i class="fas fa-sign-out-alt mr-1"></i>Sign out</span
                 >
               </div>
             </div>

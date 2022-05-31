@@ -11,6 +11,7 @@ import { CartService } from '../../services/cart.service';
 })
 export class HeaderComponent implements OnInit {
   show: boolean = false;
+  showDropDown = false;
   constructor(
     public authService: AuthService,
     private router: Router,

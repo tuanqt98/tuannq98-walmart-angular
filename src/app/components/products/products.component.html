@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="d-flex my-3">
-      <h4 class="font-weight-bold mb-0">Default Select |</h4>
+    <div class="col-md-8 my-3 d-flex align-items-center">
+      <h4 class="font-weight-bold mb-0">Sort by |</h4>
       <select id="gender1">
         <option>Best Match</option>
         <option>Best Seller</option>
@@ -9,11 +9,22 @@
         <option>Price: high to low</option>
       </select>
     </div>
+    <div class="col-md-4 my-3 pt-3">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Filter..."
+          #search
+          (keyup)="onKeyUp(search.value)"
+        />
+      </div>
+    </div>
   </div>
 </div>
 <div class="product my-5 container">
   <div class="row">
-    <div class="col-sm-3 my-4" *ngFor="let product of products">
+    <div class="col-sm-3 my-4" *ngFor="let product of filtered">
       <div class="card w-100 align-items-center">
         <img
           class="card-img-product"
@@ -26,8 +37,7 @@
           <p class="card-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
             minima sint iste qui reiciendis. Tempora corrupti quae adipisci
-            provident minus culpa nam odio eaque vitae, veniam, fuga a
-            exercitationem esse?
+            provident minus culpa nam odio eaque vitae
           </p>
           <p class="card-text text-info">
             <span></span>
@@ -67,8 +77,3 @@
     </div>
   </div>
 </div>
-<p-paginator
-  [rows]="10"
-  totalRecords="100"
-  (onPageChange)="paginate($event)"
-></p-paginator>

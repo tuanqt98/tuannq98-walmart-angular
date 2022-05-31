@@ -123,6 +123,10 @@
               "devServerTarget": "mock-project-angular:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

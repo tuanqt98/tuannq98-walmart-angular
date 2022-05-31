@@ -110,3 +110,7 @@ a:hover {
   object-fit: cover;
   border-radius: 100%;
 }
+.dropdown-menu.menu-show {
+  top: 40px !important;
+  transform: translateX(63%) !important;
+}

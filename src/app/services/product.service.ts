@@ -5,6 +5,7 @@ export interface Product {
   name: string;
   price: number | null;
 }
+
 @Injectable({
   providedIn: 'root',
 })
@@ -17,4 +18,5 @@ export class ProductService {
   filter(str) {
     return Data.filter((value) => value.breadcrumbs.includes(str));
   }
+  // getProduct(_id: string) {}
 }

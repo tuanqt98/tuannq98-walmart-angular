@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Product, ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -7,12 +8,11 @@ import { Product, ProductService } from 'src/app/services/product.service';
   styleUrls: ['./product-detail.component.scss'],
 })
 export class ProductDetailComponent implements OnInit {
-  product: Product = {
-    name: '',
-
-    price: null,
-  };
-  constructor(public ProductService: ProductService) {}
+  product: Product[] = [];
+  constructor(
+    public productService: ProductService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {}
 }

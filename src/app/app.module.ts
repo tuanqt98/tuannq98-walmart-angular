@@ -13,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
+// import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,7 +23,9 @@ import { PaginatorModule } from 'primeng/paginator';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { CartComponent } from './components/cart/cart.component';
-
+import { FilterPipe } from './pipe/filter.pipe';
+// import { NgxPaginationModule } from 'ngx-pagination';
+// import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,7 @@ import { CartComponent } from './components/cart/cart.component';
     ProductsComponent,
     ProductDetailComponent,
     CartComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,8 @@ import { CartComponent } from './components/cart/cart.component';
     MatIconModule,
     PaginatorModule,
     HttpClientModule,
+    // NgxPaginationModule,
+    // NgxSpinnerModule,
   ],
   providers: [
     {
@@ -58,6 +63,7 @@ import { CartComponent } from './components/cart/cart.component';
       multi: true,
     },
   ],
+
   bootstrap: [AppComponent],
 })
 export class AppModule {}

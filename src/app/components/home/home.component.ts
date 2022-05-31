@@ -10,6 +10,8 @@ import { Product, ProductService } from 'src/app/services/product.service';
 })
 export class HomeComponent implements OnInit {
   products: Product[] = [];
+  bestSellers: Product[] = [];
+  ballons: Product[] = [];
   category = [
     {
       title: 'Party Decorations & Party Supplies',
@@ -36,6 +38,7 @@ export class HomeComponent implements OnInit {
     public cartService: CartService,
     private productService: ProductService
   ) {
-    this.products = productService.filter('DIY & Car Care');
+    this.bestSellers = productService.filter('DIY & Car Care').splice(0, 5);
+    this.ballons = productService.filter('Health & Beauty').splice(0, 5);
   }
 }

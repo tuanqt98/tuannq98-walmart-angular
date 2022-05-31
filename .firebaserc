@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "tuannq35-hn22-fr-angular-01": {
+      "hosting": {
+        "mock-project-angular": [
+          "tuannq35-hn22-fr-angular-01"
+        ]
+      }
+    }
+  }
+}
