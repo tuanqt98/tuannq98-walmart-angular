@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Product, ProductService } from 'src/app/services/product.service';
 import { CartService } from '../../services/cart.service';
 @Component({
@@ -13,7 +14,8 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private productService: ProductService,
-    public cartService: CartService
+    public cartService: CartService,
+    private spinner: NgxSpinnerService
   ) {
     this.products = productService.getAllProduct();
     this.bestSeller = productService.filter('DIY & Car Care');
@@ -21,6 +23,12 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.filtered = this.productService.getAllProduct();
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
   }
 
   onKeyUp(value: string) {

@@ -3,7 +3,13 @@ import Data from '../product';
 export interface Product {
   id?: string;
   name: string;
+  images?: string;
   price: number | null;
+  currency: string;
+  brand: string;
+  availability: string;
+  condition: string;
+  avg_rating?: string | number;
 }
 
 @Injectable({
@@ -18,5 +24,7 @@ export class ProductService {
   filter(str) {
     return Data.filter((value) => value.breadcrumbs.includes(str));
   }
-  // getProduct(_id: string) {}
+  getProductById(id) {
+    return Data.find((product) => product._id === id);
+  }
 }

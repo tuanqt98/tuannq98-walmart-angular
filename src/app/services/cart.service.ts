@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 
+import { HttpClient } from '@angular/common/http';
+import { Product } from '../services/product.service';
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
+  items: Product[] = [];
   private cart = [];
   constructor() {
     let savedCart = localStorage.getItem('cart');

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +25,9 @@ import { AuthInterceptor } from './services/auth.interceptor';
 import { CartComponent } from './components/cart/cart.component';
 import { FilterPipe } from './pipe/filter.pipe';
 // import { NgxPaginationModule } from 'ngx-pagination';
-// import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner';
+// import { SliderComponent } from '../app/components/slider/slider.component';
+// import { NgbdPaginationBasic } from './pagination-basic';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,7 @@ import { FilterPipe } from './pipe/filter.pipe';
     ProductDetailComponent,
     CartComponent,
     FilterPipe,
+    // SliderComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { FilterPipe } from './pipe/filter.pipe';
     PaginatorModule,
     HttpClientModule,
     // NgxPaginationModule,
-    // NgxSpinnerModule,
+    NgxSpinnerModule,
+    // NgbdPaginationBasic,
   ],
   providers: [
     {
@@ -65,5 +69,6 @@ import { FilterPipe } from './pipe/filter.pipe';
   ],
 
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}

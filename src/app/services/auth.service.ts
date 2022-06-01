@@ -16,7 +16,7 @@ export class AuthService {
     return this.http.post(`${this.baseURL}/api/login`, user).pipe(
       map(
         (res) =>
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkphbmV0IiwiZW1haWwiOiJqYW5ldC53ZWF2ZXJAcmVxcmVzLmluIiwiaXNBZG1pbiI6dHJ1ZSwiYXZhdGFyIjoiaHR0cHM6Ly9yZXFyZXMuaW4vaW1nL2ZhY2VzLzEtaW1hZ2UuanBnIiwiaWF0IjoxNTE2MjM5MDIyLCJpZCI6Mn0.A_wje7Ez3doZQLb0uHlbN5tqTtGqURY8ilCI3fnUHCY'
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlF1b2NUdWFuIiwiZW1haWwiOiJqYW5ldC53ZWF2ZXJAcmVxcmVzLmluIiwiaXNBZG1pbiI6dHJ1ZSwiYXZhdGFyIjoiaHR0cHM6Ly9yZXFyZXMuaW4vaW1nL2ZhY2VzLzEtaW1hZ2UuanBnIiwiaWF0IjoxNTE2MjM5MDIyLCJpZCI6Mn0.RkS72pevn_xl0mCKEyHmLY5gV36SvvSlL4kbzZALu1k'
       ),
       tap((token: string) => {
         let decoded = jwtDecode(token);
@@ -27,7 +27,7 @@ export class AuthService {
     );
   }
   isLoggedIn(): boolean {
-    return !!this.user;
+    return this.user;
   }
   logout() {
     this.user = null;

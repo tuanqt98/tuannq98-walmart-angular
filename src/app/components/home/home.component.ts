@@ -2,6 +2,7 @@ import { CartService } from './../../services/cart.service';
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Product, ProductService } from 'src/app/services/product.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,8 +11,9 @@ import { Product, ProductService } from 'src/app/services/product.service';
 })
 export class HomeComponent implements OnInit {
   products: Product[] = [];
-  bestSellers: Product[] = [];
-  ballons: Product[] = [];
+  carCare: Product[] = [];
+  health: Product[] = [];
+  party: Product[] = [];
   category = [
     {
       title: 'Party Decorations & Party Supplies',
@@ -33,12 +35,23 @@ export class HomeComponent implements OnInit {
         'With supporting text below as a natural lead-in to additional content',
     },
   ];
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.spinner.show();
+
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 1000);
+  }
   constructor(
     public cartService: CartService,
-    private productService: ProductService
+    private productService: ProductService,
+    private spinner: NgxSpinnerService
   ) {
-    this.bestSellers = productService.filter('DIY & Car Care').splice(0, 5);
-    this.ballons = productService.filter('Health & Beauty').splice(0, 5);
+    this.carCare = productService.filter('DIY & Car Care').splice(0, 4);
+    this.health = productService.filter('Health & Beauty').splice(0, 4);
+    this.party = productService
+      .filter('Party Decorations & Party Supplies')
+      .splice(0, 4);
   }
 }
