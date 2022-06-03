@@ -10,8 +10,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent implements OnInit {
   user = {
-    email: 'janet.weaver@reqres.in',
-    password: 'abc1234',
+    email: '',
+    password: '',
   };
   constructor(
     private authService: AuthService,
@@ -33,5 +33,9 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
       }
     });
+  }
+  demoClick() {
+    this.user.email = 'janet.weaver@reqres.in';
+    this.user.password = 'abc1234';
   }
 }

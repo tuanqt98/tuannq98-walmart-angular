@@ -40,22 +40,10 @@
               routerLink="/product"
               >All Departments</a
             >
-            <a
-              class="nav-link department-hover text-dark"
-              ngbDropdownItem
-              routerLink="/party-decoration"
+            <!-- <a class="nav-link department-hover text-dark" ngbDropdownItem
               >Party Decorations & Party Supplies</a
             >
-            <a
-              class="nav-link department-hover text-dark"
-              ngbDropdownItem
-              routerLink="/ballons"
-              >Ballons</a
-            >
-            <a
-              class="nav-link department-hover text-dark"
-              ngbDropdownItem
-              routerLink="/car-care"
+            <a class="nav-link department-hover text-dark" ngbDropdownItem
               >DIY & Car Care</a
             >
             <a
@@ -63,7 +51,7 @@
               ngbDropdownItem
               routerLink="/health-beauty"
               >Health & Beauty</a
-            >
+            > -->
           </div>
         </li>
 
@@ -85,7 +73,7 @@
         </li>
         <li class="nav-item ml-auto d-flex align-items-center nav-item-hover">
           <div class="sign-in d-flex">
-            <div class="icon-sign-in">
+            <div class="icon-sign-in text-white">
               <i class="fas fa-user"></i>
             </div>
             <div
@@ -95,8 +83,8 @@
               id="gfg"
               ngbDropdownToggle
             >
-              <p>Sign in</p>
-              <p>Account</p>
+              <p class="text-white m-0">Sign in</p>
+              <p class="text-white m-0">Account</p>
               <div ngbDropdownMenu="gfg" class="shadow">
                 <a class="nav-link login" ngbDropdownItem routerLink="/login"
                   >Sign in</a
@@ -115,14 +103,18 @@
             </div>
           </div>
         </li>
+
         <ng-template #avatar>
           <li class="nav-item ml-auto d-flex align-item-center">
             <div class="dropdown user-dropdown">
               <span
-                class="dropdown-toggle cursor-pointer d-inline-block"
+                class="dropdown-toggle d-inline-block"
                 (click)="show = !show"
               >
-                <span class="name-login">Hi,{{ authService.user.name }}</span>
+                <span class="name-login py-1"
+                  >Hi,{{ authService.user.name
+                  }}<i class="fas fa-caret-down ml-2"></i
+                ></span>
               </span>
               <div class="dropdown-menu" [class.show]="show">
                 <span
@@ -143,32 +135,6 @@
             </div>
           </li>
         </ng-template>
-        <!-- <ng-template #avatar>
-          <li class="nav-item ml-auto d-flex align-item-center">
-            <div class="dropdown user-dropdown">
-              <span
-                class="dropdown-toggle cursor-pointer d-inline-block"
-                (click)="show = !show"
-              >
-                <img
-                  [src]="authService.user.avatar"
-                  alt="User avatar"
-                  class="user-avatar"
-                />
-              </span>
-              <div class="dropdown-menu menu-show" [class.show]="show">
-                <span
-                  class="dropdown-item cursor-pointer"
-                  (click)="goToMyProfile()"
-                  ><i class="fas fa-user mr-2"></i>My profile</span
-                >
-                <span class="dropdown-item cursor-pointer" (click)="logout()"
-                  ><i class="fas fa-sign-out-alt mr-2"></i>Sign out</span
-                >
-              </div>
-            </div>
-          </li>
-        </ng-template> -->
         <li class="nav-item mr-3">
           <a class="nav-link cart text-center" routerLink="/cart"
             ><i class="fas fa-shopping-cart text-white"></i>

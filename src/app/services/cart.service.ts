@@ -58,4 +58,20 @@ export class CartService {
       return accu + p.quantity * p.price;
     }, 0);
   }
+
+  addToCart(product: Product) {
+    let local_storage = [];
+    this.items.push(product);
+    localStorage.setItem('cart', JSON.stringify(this.cart));
+  }
+  getItems() {
+    return this.items;
+  }
+  clearCart() {
+    this.items = [];
+    return this.items;
+  }
+  removeItemCart(item) {
+    this.items = this.items.filter((i) => i !== item);
+  }
 }

@@ -24,10 +24,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/auth.interceptor';
 import { CartComponent } from './components/cart/cart.component';
 import { FilterPipe } from './pipe/filter.pipe';
-// import { NgxPaginationModule } from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { NgxSpinnerModule } from 'ngx-spinner';
-// import { SliderComponent } from '../app/components/slider/slider.component';
-// import { NgbdPaginationBasic } from './pagination-basic';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +39,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ProductDetailComponent,
     CartComponent,
     FilterPipe,
-    // SliderComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,9 +54,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     MatIconModule,
     PaginatorModule,
     HttpClientModule,
-    // NgxPaginationModule,
+    NgxPaginationModule,
     NgxSpinnerModule,
-    // NgbdPaginationBasic,
   ],
   providers: [
     {

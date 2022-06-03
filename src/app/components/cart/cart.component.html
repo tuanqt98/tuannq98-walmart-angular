@@ -1,6 +1,158 @@
-<!-- <h3>Cart</h3>
+<!-- <div class="container" *ngIf="items.length !== 0; else noProduct">
+  <div class="row mr-0">
+    <div class="col-md-8">
+      <div class="wrap-cart my-2 shadow" *ngFor="let item of items">
+        <div
+          class="cart-item d-flex align-items-center justify-content-center w-100"
+        >
+          <div class="cart-item-left d-flex align-items-center">
+            <div class="images-item">
+              <img [src]="item.images" alt="" />
+            </div>
+            <div class="title-cart">{{ item.name }}</div>
+          </div>
+          <div class="cart-item-right">
+            <p class="price">{{ getItemTotalPrice(item) | currency: "USD" }}</p>
+            <p class="rating">{{ item.svg_rating }}</p>
+          </div>
+        </div>
+        <div class="cart-mid-item">
+          <button
+            type="button"
+            class="btn btn-primary w-50"
+            (click)="cartService.addItem(product)"
+          >
+            <i class="fas fa-shopping-cart mr-2"></i>Add to cart
+          </button>
+          <div class="remove">
+            <button href="" (click)="remove(item)">Remove</button>
+            <ng-template #updateQuantity>
+              <div
+                class="d-flex justify-content-between align-items-center btn-add-remove w-50"
+              >
+                <button
+                  class="btn btn-minus"
+                  (click)="cartService.removeItem(item)"
+                  *ngIf="
+                    cartService.getItemQuantity(item) === 0;
+                    else updateQuantity
+                  "
+                >
+                  <i class="fas fa-minus text-white"></i>
+                </button>
+                <span class="text-white font-weight-bold">
+                  {{ cartService.getItemQuantity(item) }}</span
+                >
+                <button class="btn btn-add" (click)="cartService.addItem(item)">
+                  <i class="fas fa-plus text-white"></i>
+                </button>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }}</span>
-  <span>{{ item.price | currency }}</span>
-</div> -->
+<ng-template #noProduct>
+  <div class="container my-5 d-flex flex-column align-items-center text-center">
+    <p class="title-cart">My Cart</p>
+    <div class="center">
+      <p class="cart-icon text-primary">
+        <img
+          loading="lazy"
+          src="//i5.walmartimages.com/dfw/63fd9f59-e0d6/65ab57af-59d6-423a-9500-1fa5ab36d1c7/v1/empty-cart.svg?odnHeight=240&amp;odnWidth=200&amp;odnBg=ffffff"
+          class="mw-100 h-auto"
+          alt="empty cart"
+          width="240"
+          height="200"
+        />
+      </p>
+      <h5>Time to start shopping!</h5>
+      <h6>Your cart is empty</h6>
+
+      <button class="btn btn-primary" routerLink="/product">Show now</button>
+    </div>
+  </div>
+</ng-template> -->
+<ngx-spinner
+  bdColor="rgba(0, 0, 0, 0.8)"
+  size="default"
+  color="#fff"
+  type="ball-climbing-dot"
+  [fullScreen]="true"
+>
+  <p style="color: white">Loading...</p>
+</ngx-spinner>
+
+<div class="shopping__header">
+  <div class="container">
+    <h3>Shopping Cart</h3>
+    <div>
+      <a routerLink="/home">Home ></a>
+      <a routerLink="/shop" class="mx-2">Shop ></a>
+      <a class="text-muted">Shopping Cart</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row py-5" *ngIf="cartService.getCartQuantity() !== 0">
+    <div class="col-lg-8">
+      <table class="table mt-5">
+        <thead>
+          <tr>
+            <th scope="col">Images</th>
+            <th scope="col">Product</th>
+            <th scope="col" class="text-center">Quantity</th>
+            <th scope="col" class="text-center">Total</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of items">
+            <td><img [src]="item.images" alt="" /></td>
+            <td>{{ item.title }}</td>
+            <td class="text-center">
+              <span (click)="cartService.removeItem(item)"><</span>
+              <span class="mx-3">{{ cartService.getItemQuantity(item) }}</span>
+              <span (click)="cartService.addItem(item)">></span>
+            </td>
+            <td class="text-center">
+              {{ getTotalItem(item) | currency: "USD" }}
+            </td>
+            <td (click)="removeItem(item)"><i class="fas fa-trash"></i></td>
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-dark">< Continue Shopping</button>
+    </div>
+    <div class="col-lg-4">
+      <div class="p-5 cart__checkout">
+        <h5>CART TOTAL</h5>
+        <div class="d-flex justify-content-between">
+          <p>Total</p>
+          <p>{{ cartService.getCartTotalPrice() | currency: "USD" }}</p>
+        </div>
+
+        <button class="btn btn-dark" (click)="onCheckOut()">
+          Proceed to checkout
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row py-5" *ngIf="cartService.getCartQuantity() === 0">
+    <div class="cart__empty text-center">
+      <img
+        src="https://i5.walmartimages.com/dfw/63fd9f59-e0d6/65ab57af-59d6-423a-9500-1fa5ab36d1c7/v1/empty-cart.svg?odnHeight=240&odnWidth=200&odnBg=ffffff"
+        alt=""
+      />
+      <p class="font-weight-bold">Time to start shopping</p>
+      <p class="cart__emtpy paragraph">Your cart is empty!</p>
+      <button class="btn btn-dark" routerLink="product">
+        < Continue Shopping
+      </button>
+    </div>
+  </div>
+</div>

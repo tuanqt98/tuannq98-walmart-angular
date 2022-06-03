@@ -19,18 +19,12 @@
 .desc-sign-in:hover {
   cursor: pointer;
 }
-.desc-sign-in p {
-  margin: 0;
-  color: #fff;
-}
+
 .desc-sign-in p:first-child {
   font-size: 12px;
 }
 .desc-sign-in p:nth-child(2) {
   font-weight: bold;
-}
-.icon-sign-in {
-  color: #fff;
 }
 
 .nav-item-hover:hover {
@@ -60,15 +54,19 @@
     right: 0;
     left: auto;
   }
+  :hover {
+    cursor: pointer;
+  }
 }
 .dropdown-toggle::after {
   display: none;
 }
 .navbar-expand-lg .navbar-nav .dropdown-menu {
   position: absolute;
-  top: 61px;
+  top: 41px;
   transform: translateX(-40%);
   padding: 25px;
+  transition: all 0.2 ease;
 }
 .nav-link.login {
   color: #fff;

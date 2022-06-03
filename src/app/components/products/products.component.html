@@ -10,11 +10,10 @@
   <div class="row">
     <div class="col-md-8 my-3 d-flex align-items-center">
       <h4 class="font-weight-bold mb-0">Sort by |</h4>
-      <select id="gender1">
-        <option>Best Match</option>
-        <option>Best Seller</option>
-        <option>Price: low to high</option>
-        <option>Price: high to low</option>
+      <select id="gender1" (change)="sort($event)">
+        <option value="low">Price: low to high</option>
+        <option value="high">Price: high to low</option>
+        <option value="rating">Rating: high to low</option>
       </select>
     </div>
     <div class="col-md-4 my-3 pt-3">
@@ -32,7 +31,14 @@
 </div>
 <div class="product my-5 container">
   <div class="row">
-    <div class="col-sm-3 my-4" *ngFor="let product of filtered">
+    <div
+      class="col-sm-3 my-4"
+      *ngFor="
+        let product of filtered
+          | paginate
+            : { itemsPerPage: 12, currentPage: page, totalItems: totalLength }
+      "
+    >
       <div class="card w-100 align-items-center">
         <img
           class="card-img-product"
@@ -55,6 +61,7 @@
           </div>
           <button
             class="btn btn-primary w-75"
+            (click)="addToCart(product)"
             (click)="cartService.addItem(product)"
             *ngIf="
               cartService.getItemQuantity(product) === 0;
@@ -88,4 +95,8 @@
       </div>
     </div>
   </div>
+  <pagination-controls
+    class="text-center pt-3"
+    (pageChange)="page = $event"
+  ></pagination-controls>
 </div>

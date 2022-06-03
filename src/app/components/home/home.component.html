@@ -77,9 +77,12 @@
             <p class="card-text text-info">
               <span></span>
             </p>
-            <p class="card-text text-warning font-weight-bold">
-              <span>{{ product.price | currency: "USD" }}</span>
-            </p>
+            <div
+              class="card-text text-warning font-weight-bold d-flex justify-content-between"
+            >
+              <p class="mr-5">{{ product.price | currency: "USD" }}</p>
+              <p>{{ product.avg_rating }}/5<i class="fas fa-star ml-1"></i></p>
+            </div>
             <button
               class="btn btn-primary w-75"
               (click)="cartService.addItem(product)"
@@ -152,12 +155,12 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
               minima sint iste qui reiciendis.
             </p>
-            <p class="card-text text-info">
-              <span></span>
-            </p>
-            <p class="card-text text-warning font-weight-bold">
-              <span>{{ product.price | currency: "USD" }}</span>
-            </p>
+            <div
+              class="card-text text-warning font-weight-bold d-flex justify-content-between"
+            >
+              <p class="mr-5">{{ product.price | currency: "USD" }}</p>
+              <p>{{ product.avg_rating }}/5<i class="fas fa-star ml-1"></i></p>
+            </div>
             <button
               class="btn btn-primary w-75"
               (click)="cartService.addItem(product)"
@@ -231,12 +234,12 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia
               minima sint iste qui reiciendis.
             </p>
-            <p class="card-text text-info">
-              <span></span>
-            </p>
-            <p class="card-text text-warning font-weight-bold">
-              <span>{{ product.price | currency: "USD" }}</span>
-            </p>
+            <div
+              class="card-text text-warning font-weight-bold d-flex justify-content-between"
+            >
+              <p class="mr-5">{{ product.price | currency: "USD" }}</p>
+              <p>{{ product.avg_rating }}/5<i class="fas fa-star ml-1"></i></p>
+            </div>
             <button
               class="btn btn-primary w-75"
               (click)="cartService.addItem(product)"
